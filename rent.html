@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >EASY FIND BUY </title>
+    <link rel="icon" type="image/x-icon" href="/asstes/شعار مفرغ 2.png" sizes="100x100">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+    <style>
+      .filter-item {
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+      }
+      .filter-item.active, .filter-item:hover {
+        background-color: #f0f0f0;
+      }
+      .property-image {
+        height: 200px;
+        object-fit: cover;
+      }
+      .favorite-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        color: rgb(10, 10, 10);
+        cursor: pointer;
+      }
+      .property-card {
+        position: relative;
+      }
+      .bi-heart-fill {
+        color: red;
+      }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-xl  bg-white border-bottom navbar1">
+        <div class="container">
+          <a href="./home.html" class="navbar-brand">
+            <img src="./assets/شعار مفرغ 2.png" width="80px" height="80px" alt="logo">
+          </a>
+      
+          <!-- زر البرجر -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- القائمة -->
+          <div class="collapse navbar-collapse" id="navbarLinks">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a href="./buy.html" class="nav-link">Buy</a></li>
+              <li class="nav-item"><a href="./sell.html" class="nav-link">Sell</a></li>
+              <li class="nav-item"><a href="#" class="nav-link active">Rent</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Chats</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Favourites</a></li>
+            </ul>
+          
+      
+          <!-- أزرار تسجيل الدخول -->
+          <div class="d-flex">
+            <div class="dropdown">
+                <button class="btn btn-outline-gold dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person" style="font-size: 20px;"></i>  My profile
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item " href="#"><i class="bi bi-person" style="font-size: 15px;"></i> My profile</a></li>
+                    <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right" style="font-size: 15px;"></i> Log out </a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear" style="font-size: 15px;"></i> Settings</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle" style="font-size: 15px;"></i> Help center</a></li>
+                </ul>
+            </div>
+         </div>
+        </div>
+    </div>
+      </nav>
+     <div style="height: 120px; background-color: white;" ></div>
+     <section class="bg-dark text-white position-relative" style="height: 500px; background-image: url('/assets/Frame\ 240.png'); background-size: cover; background-position: center;">
+        <div class="container h-100 d-flex flex-column justify-content-center align-items-start text-start">
+          <div class="bg-dark bg-opacity-50 p-4 rounded">
+            <h1 class="display-4 fw-bold">Your new home is closer than you think – book it today !</h1>
+            <p class="lead">Plus 1000 home and more than 1500 Apartment for rent.</p>
+          </div>
+        </div>
+      </section>
+      <div class="px-4 py-5 my-5 text-center">
+         <h1 class="display-5 fw-bold text-body-emphasis">Whats happening in your area</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Whether you're in search of a new residence, an investment opportunity, or simply exploring the area, we are here to assist you in discovering precisely what meets your needs.</p>
+          <h3>Palestine Gaza</h3>
+        </div>
+      </div>
+      <h3 class="container">Homes for rent :</h3>
+      <div class="container py-4" id="filterContainer"></div>
+
+      <div class="container py-4">
+        <form id="filtersForm">
+          <div class="row" id="quantityFilters"></div>
+          <div class="row g-4">
+            <div class="col-6 col-md-4">
+              <label for="priceFrom" class="form-label">Price From</label>
+              <input type="number" id="priceFrom" class="form-control" min="0" value="0">
+            </div>
+            <div class="col-6 col-md-4">
+              <label for="priceTo" class="form-label">Price To</label>
+              <input type="number" id="priceTo" class="form-control" min="0" value="1000000">
+            </div>
+          </div>
+        </form>
+        <button type="button" class="btn btn-outline-gold reset-button mt-3" onclick="resetFilters()">Reset Filters</button>
+      </div>
+    
+      <div class="container py-4">
+        <div class="row g-4" id="propertyCards"></div>
+      </div>
+      
+      <div class="house-divider"></div>
+<div class="container">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top px-3 px-md-5">
+        <div class="col mb-3">
+          <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+            <img src="./assets/شعار مفرغ 2.png" class="bi me-2" width="150px" height="150px" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <p style="font-size: large;" class="text-body-secondary">© 2025</p>
+        </div>
+    
+        <div class="col mb-3">
+    
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">career</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Blog</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Support</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Helping center</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms & conditions</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Explore</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Advertise with Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">List Property</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Landlord Resources</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Become a Agent</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll('.filter-item').forEach(item => {
+          item.addEventListener('click', () => {
+            document.querySelectorAll('.filter-item').forEach(el => el.classList.remove('active'));
+            item.classList.add('active');
+          });
+        });
+      </script>
+      <script>
+        document.querySelectorAll('.favorite-icon').forEach(icon => {
+          icon.addEventListener('click', () => {
+            const heart = icon.querySelector('i');
+            heart.classList.toggle('bi-heart');
+            heart.classList.toggle('bi-heart-fill');
+            heart.style.color = heart.classList.contains('bi-heart-fill') ? 'red' : 'black';
+          });
+        });
+      </script>
+      <script>
+  // محاكاة لتسجيل دخول المستخدم (مثلاً جرب تغيّرها لاحقًا)
+  const isLoggedIn = true; // خليه false لتجربة قبل الدخول
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('authButtons');
+
+    if (isLoggedIn) {
+      container.innerHTML = `
+        <button class="btn btn-light me-2" onclick="window.location.href='profile.html'">
+          👤 My Profile
+        </button>
+        <button class="btn btn-outline-danger" onclick="logoutUser()">Log out</button>
+      `;
+    }
+  });
+
+  function logoutUser() {
+    // هون ضيف أي إجراء لتسجيل الخروج (مثلاً مسح localStorage أو توجيه)
+    alert("Logged out successfully!");
+    window.location.href = 'index.html'; // أو رجّع المستخدم للصفحة الرئيسية
+  }
+</script>
+<script>
+  const filters = [
+    { icon: 'bi-house-door', label: 'House' },
+    { icon: 'bi-building', label: 'Apartment' },
+    { icon: 'bi-truck', label: 'Caravan' },
+    { icon: 'bi-tree', label: 'Tent House' }
+  ];
+
+  const quantities = [
+    { id: 'rooms', label: 'Rooms' },
+    { id: 'bathrooms', label: 'Bath Room' },
+    { id: 'bedrooms', label: 'Bed Room' },
+    { id: 'beds', label: 'Beds N' },
+    { id: 'guests', label: 'Guests' },
+    { id: 'floors', label: 'Floors' }
+  ];
+
+  const properties = [
+    { image: 'h1.webp', type: 'House', bed: 4, bath: 2, size: '3,033', address: 'Old State Road 3, Laotto, CA 46763', price: '$499,900' },
+    { image: 'h2.webp', type: 'Apartment', bed: 3, bath: 2, size: '2,800', address: 'Main Street, Austin, TX 73301', price: '$550,000' },
+    { image: 'h3.jpg', type: 'Caravan', bed: 2, bath: 1, size: '1,500', address: 'Ocean Drive, Miami, FL 33101', price: '$320,000' },
+    { image: 'h4.jpg', type: 'Tent House', bed: 5, bath: 3, size: '3,500', address: 'Sunset Blvd, Los Angeles, CA 90028', price: '$720,000' },
+    { image: 'h5.jpg', type: 'House', bed: 3, bath: 2, size: '2,200', address: 'Elm Street, Chicago, IL 60601', price: '$410,000' },
+    { image: 'h6.jpeg', type: 'Apartment', bed: 4, bath: 3, size: '3,100', address: 'Pine Lane, Denver, CO 80201', price: '$615,000' },
+    { image: 'h7.jpg', type: 'Caravan', bed: 4, bath: 2, size: '2,900', address: 'Broadway, New York, NY 10001', price: '$530,000' },
+    { image: 'home.jpg', type: 'Tent House', bed: 3, bath: 2, size: '2,600', address: 'River Road, Nashville, TN 37201', price: '$470,000' }
+  ];
+
+  const filterContainer = document.getElementById('filterContainer');
+  const quantityFilters = document.getElementById('quantityFilters');
+  const propertyCards = document.getElementById('propertyCards');
+
+  let activeType = filters[0].label;
+
+  filterContainer.innerHTML = `
+    <div class="row text-center justify-content-center g-4">
+      ${filters.map((f, i) => `
+        <div class="col-6 col-md-3 col-lg-1">
+          <div class="filter-item ${i === 0 ? 'active' : ''}" onclick="setTypeFilter('${f.label}', this)">
+            <i class="bi ${f.icon}" style="font-size: 2rem;"></i>
+            <div>${f.label}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  quantityFilters.innerHTML = quantities.map(q => `
+    <div class="col-6 col-lg-4 mb-3">
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-outline-secondary px-3" onclick="changeValue('${q.id}', -1)">−</button>
+        <input type="number" id="${q.id}" class="form-control text-center mx-2" value="1" min="0" style="width: 70px;" onchange="filterProperties()">
+        <button type="button" class="btn btn-outline-secondary px-3" onclick="changeValue('${q.id}', 1)">+</button>
+        <label for="${q.id}" class="form-label me-3 fw-bold mb-0">${q.label}</label>
+      </div>
+    </div>
+  `).join('');
+
+  function setTypeFilter(type, el) {
+    activeType = type;
+    document.querySelectorAll('.filter-item').forEach(item => item.classList.remove('active'));
+    el.classList.add('active');
+    filterProperties();
+  }
+
+  function changeValue(id, delta) {
+    const input = document.getElementById(id);
+    const newValue = Math.max(0, parseInt(input.value || 0) + delta);
+    input.value = newValue;
+    filterProperties();
+  }
+
+  function toggleFavorite(el) {
+    const icon = el.querySelector('i');
+    icon.classList.toggle('bi-heart');
+    icon.classList.toggle('bi-heart-fill');
+  }
+
+  function filterProperties() {
+    const filters = {
+      rooms: parseInt(document.getElementById('rooms').value),
+      bathrooms: parseInt(document.getElementById('bathrooms').value),
+      bedrooms: parseInt(document.getElementById('bedrooms').value),
+      beds: parseInt(document.getElementById('beds').value),
+      guests: parseInt(document.getElementById('guests').value),
+      floors: parseInt(document.getElementById('floors').value),
+      priceFrom: parseInt(document.getElementById('priceFrom').value),
+      priceTo: parseInt(document.getElementById('priceTo').value)
+    };
+
+    const filtered = properties.filter(p => {
+      const price = parseInt(p.price.replace(/[$,]/g, ''));
+      return (
+        p.type === activeType &&
+        p.bed >= filters.bedrooms &&
+        p.bath >= filters.bathrooms &&
+        price >= filters.priceFrom &&
+        price <= filters.priceTo
+      );
+    });
+
+    renderProperties(filtered);
+  }
+
+  function resetFilters() {
+    document.getElementById('filtersForm').reset();
+    quantities.forEach(q => {
+      document.getElementById(q.id).value = 1;
+    });
+    document.getElementById('priceFrom').value = 0;
+    document.getElementById('priceTo').value = 1000000;
+    filterProperties();
+  }
+
+  function renderProperties(props) {
+    propertyCards.innerHTML = props.map(p => `
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card property-card">
+          <img src="./assets/${p.image}" class="property-image" alt="Property">
+          <div class="favorite-icon" onclick="toggleFavorite(this)"><i class="bi bi-heart"></i></div>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">${p.price}</h5>
+            <div class="d-flex text-muted property-info mb-2">
+              <div class="me-3"><i class="bi bi-house-door"></i> ${p.bed} bed</div>
+              <div class="me-3"><i class="bi bi-droplet"></i> ${p.bath} bath</div>
+              <div><i class="bi bi-arrows-fullscreen"></i><strong> ${p.size}</strong> sqft</div>
+            </div>
+            <div class="property-address">
+              ${p.address}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  renderProperties(properties);
+  document.querySelectorAll('#filtersForm input').forEach(input => input.addEventListener('input', filterProperties));
+</script>
+</body>
+</html>
