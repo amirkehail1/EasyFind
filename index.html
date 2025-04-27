@@ -10,6 +10,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="./style.css">
+    <style>
+         .card-height {
+height: 100px ;
+}
+    @media (min-width: 200px) and (max-width: 700px) {
+.card-height {
+height: 120px ;
+}
+}
+    </style>
 </head>
 
 <body>
@@ -31,7 +41,7 @@
               <li class="nav-item"><a href="/sell.html" class="nav-link">Sell</a></li>
               <li class="nav-item"><a href="/rent.html" class="nav-link">Rent</a></li>
               <li class="nav-item"><a href="#" class="nav-link">Chats</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Favourites</a></li>
+              <li class="nav-item"><a href="/favourite.html" class="nav-link">Favourites</a></li>
             </ul>
           
       
@@ -43,7 +53,7 @@
         </div>
     </div>
       </nav>
-     <div style="height: 100px; background-color: white;" ></div>
+     <div class="card-height" background-color: white;" ></div>
      
       <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -166,9 +176,10 @@
         <div class="row g-4">
           <!-- كرت عقار -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" style="cursor: pointer;" onclick="window.location.href='details.html';">
+              
               <img src="./assets/h1.webp" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -180,14 +191,15 @@
                   Old State Road 3, Laotto, CA 46763
                 </div>
               </div>
-            </div>
+             
+            </div> 
           </div>
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h2.webp" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -204,9 +216,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h3.jpg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -223,9 +235,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h4.jpg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -242,9 +254,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h5.jpg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -261,9 +273,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h6.jpeg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -280,9 +292,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/h7.jpg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -299,9 +311,9 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card property-card">
+            <div class="card property-card" onclick="window.location.href='details.html';">
               <img src="./assets/home.jpg" class="property-image" alt="Property">
-              <div class="favorite-icon"><i class="bi bi-heart"><a href=""></a></i></div>
+              <div class="favorite-icon" onclick="event.stopPropagation(); toggleFavourite(this);"><i class="bi bi-heart"><a href=""></a></i></div>
               <div class="card-body">
                 <h5 class="card-title fw-bold">$499,900</h5>
                 <div class="d-flex text-muted property-info mb-2">
@@ -318,13 +330,13 @@
       
           <!-- كرر البلوك أعلاه مع تغيير المحتوى لعدة كروت -->
           <div class="text-center mt-4">
-            <button class="btn btn-outline-dark px-5 py-2 rounded-pill shadow-sm">View All</button>
+            <button class="btn btn-outline-dark px-5 py-2 rounded-pill shadow-sm" onclick="window.location.href='viewall.html'">View All</button>
           </div>
           
         </div>
       </div>
 
-      
+     
       
       <div class="house-divider"></div>
 <div class="container">
