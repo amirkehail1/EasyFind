@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Favourites - Easy Find</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .property-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .price-new {
+      color: #f5b400;
+      font-weight: bold;
+    }
+    .price-old {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .remove-btn {
+      background-color: #ffffff;
+      border: 1px solid #f5b400;
+      color: #f5b400;
+      border-radius: 20px;
+      padding: 5px 15px;
+    }
+    .remove-btn:hover {
+      background-color: #f5b400;
+      color: rgb(255, 255, 255);
+    }
+    .recommended-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+.recommended-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.recommended-card:hover {
+  transform: scale(1.015); /* تكبير خفيف جداً */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* ظل خفيف */
+}
+.property-card {
+  position: relative;
+  padding: 15px;
+  border-color: white;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: white; /* جوة الكرت أبيض */
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* حركة ناعمة */
+}
+
+.property-card:hover {
+  transform: translateY(-5px) scale(1.02); /* تطلع لفوق شوي و تكبر شوية */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* ظل أقوى عند التحويم */
+}
+
+.property-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 5px; /* نفس قيمة البوردر */
+  padding: 1px; /* حجم البوردر */
+  background: linear-gradient(to top, black, white);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+@media (min-width: 400px) and (max-width: 700px) {
+.card-height {
+height: 300px ;
+}
+}
+
+ 
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+   <nav class="navbar navbar-expand-xl  bg-white border-bottom navbar1">
+        <div class="container">
+          <a href="/home.html" class="navbar-brand">
+            <img src="./assets/شعار مفرغ 2.png" width="100px" height="100px" alt="logo">
+          </a>
+      
+          <!-- زر البرجر -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- القائمة -->
+          <div class="collapse navbar-collapse" id="navbarLinks">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a href="#" class="nav-link" onclick="window.location.href='buy.html'">Buy</a></li>
+              <li class="nav-item"><a href="/sell.html" class="nav-link">Sell</a></li>
+              <li class="nav-item"><a href="/rent.html" class="nav-link">Rent</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Chats</a></li>
+              <li class="nav-item"><a href="#" class="nav-link active">Favourites</a></li>
+            </ul>
+          
+      
+          <!-- أزرار   -->
+          <div class="d-flex">
+            <div class="dropdown">
+              <button class="btn btn-outline-gold dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person" style="font-size: 20px;"></i>  My profile
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item " href="#"><i class="bi bi-person" style="font-size: 15px;"></i> My profile</a></li>
+                  <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right" style="font-size: 15px;"></i> Log out </a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-gear" style="font-size: 15px;"></i> Settings</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle" style="font-size: 15px;"></i> Help center</a></li>
+              </ul>
+          </div>
+             </div>
+        </div>
+    </div>
+      </nav>
+ <div style="height: 100px; background-color: white;" ></div>
+     
+<!-- Favourites Section -->
+<div class="container mt-5">
+  <h4 class="mb-4">My Favourites</h4>
+  <div class="property-card d-flex align-items-center linear-border">
+   <button class="btn" onclick="window.location.href=''">
+    <img src="./assets/h2.webp" class="rounded me-3" alt="Property" height="100px" width="100px">
+   </button>
+    <div class="flex-grow-1">
+      <div>For sell</div>
+      <div class="price-new">550,000 $ <span class="price-old">650,000 $</span></div>
+      <div>Palestine, Gaza, Nasar Street</div>
+    </div>
+    <button class="remove-btn ms-3">Remove <i class="bi bi-trash" style="font-size: 15px;"></i></button>
+  </div>
+  <!-- Repeat the above card 2 more times -->
+  <div class="property-card d-flex align-items-center">
+    <button class="btn"  onclick="window.location.href=''">
+    <img src="./assets/h3.jpg" class="rounded me-3" alt="Property" height="100px" width="100px">
+   </button>
+    <div class="flex-grow-1">
+      <div>For sell</div>
+      <div class="price-new">320,000 $ <span class="price-old">420,000 $</span></div>
+      <div>Palestine, Gaza, Nasar Street</div>
+    </div>
+    <button class="remove-btn ms-3">Remove <i class="bi bi-trash" style="font-size: 15px;"></i></button>
+  </div>
+  <div class="property-card d-flex align-items-center">
+    <button class="btn"  onclick="window.location.href=''">
+    <img src="./assets/h4.jpg" class="rounded me-3" alt="Property" height="100px" width="100px">
+    </button>
+    <div class="flex-grow-1">
+      <div>For rent</div>
+      <div class="price-new">250 $ / M. <span class="price-old">300 $ / M.</span></div>
+      <div>Palestine, Gaza, Nasar Street</div>
+    </div>
+    <button class="remove-btn ms-3" >Remove <i class="bi bi-trash" style="font-size: 15px;"></i></button>
+  </div>
+</div>
+
+<!-- Recommended Section -->
+<div class="container mt-5">
+  <h4 class="mb-4">Recommended</h4>
+  <div class="row g-4">
+    <div class="col-md-3 ">
+      <div class="card recommended-card">
+        <img src="./assets/h6.jpeg" class="card-img-top card-height" alt="..." height="200px">
+        <div class="card-body">
+          <h5 class="card-title">$1,199,000</h5>
+          <p class="card-text">4 bed · 2 bath · 1500 sqft<br> Ave, San Francisco, CA 94122</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card recommended-card">
+        <img src="./assets/h7.jpg" class="card-img-top card-height" alt="..." height="200px">
+        <div class="card-body">
+          <h5 class="card-title">$179,000</h5>
+          <p class="card-text">4 bed · 3 bath · 2944 sqft<br> S Cullen St, Rensselaer, CA 47978</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card recommended-card">
+        <img src="./assets/h1.webp" class="card-img-top card-height" alt="..." height="200px">
+        <div class="card-body">
+          <h5 class="card-title">$349,000</h5>
+          <p class="card-text">6 bed · 3 bath · 3024 sqft<br> E Old Fort Harrison Ave, CA 47805</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card recommended-card">
+        <img src="./assets/h5.jpg" class="card-img-top card-height" alt="..." height="200px">
+        <div class="card-body">
+          <h5 class="card-title">$499,900</h5>
+          <p class="card-text">4 bed · 2 bath · 3033 sqft<br> Old State Road 3, Laotto, CA 46763</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+ <div style="height: 50px; background-color: white;" ></div>
+   
+ <div class="house-divider"></div>
+<div class="container">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3">
+          <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+            <img src="./assets/شعار مفرغ 2.png" class="bi me-2" width="150px" height="150px" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <p style="font-size: large;" class="text-body-secondary">© 2025</p>
+        </div>
+    
+        <div class="col mb-3">
+    
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">career</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Blog</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Support</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Helping center</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Terms & conditions</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Explore</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Advertise with Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">List Property</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Landlord Resources</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Become a Agent</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
