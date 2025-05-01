@@ -1,4 +1,3 @@
-
 function changeValue(id, delta) {
   const input = document.getElementById(id);
   let value = parseInt(input.value) || 0;
@@ -29,14 +28,14 @@ dropdownItems.forEach(item => {
     }
   });
 });
-
+//لتحميل الصور
 const imageUpload = document.getElementById("imageUpload");
 const preview = document.getElementById("preview");
 const errorMsg = document.getElementById("errorMsg");
 
 imageUpload.addEventListener("change", function () {
   const files = Array.from(imageUpload.files);
-  
+
   preview.innerHTML = ""; // نفضي المعاينة
 
   // تحقق من الحد الأدنى
@@ -50,18 +49,33 @@ imageUpload.addEventListener("change", function () {
   files.forEach(file => {
     const reader = new FileReader();
     reader.onload = function (e) {
-      const img = document.createElement("img");
-      img.src = e.target.result;
-      img.className = "rounded border";
-      img.style.width = "100px";
-      img.style.height = "100px";
-      img.style.objectFit = "cover";
-      preview.appendChild(img);
+      let element;
+      if (file.type.startsWith("image/")) {
+        // إذا الملف صورة
+        element = document.createElement("img");
+        element.src = e.target.result;
+        element.style.objectFit = "cover";
+      } else if (file.type.startsWith("video/")) {
+        // إذا الملف فيديو
+        element = document.createElement("video");
+        element.src = e.target.result;
+        element.controls = true;
+        element.style.objectFit = "cover";
+      } else {
+        // نوع غير مدعوم
+        return;
+      }
+
+      element.className = "rounded border";
+      element.style.width = "100px";
+      element.style.height = "100px";
+      preview.appendChild(element);
     };
     reader.readAsDataURL(file);
   });
 });
 
+//
 const buttons = document.querySelectorAll('.highlight-btn');
 
 buttons.forEach(btn => {
