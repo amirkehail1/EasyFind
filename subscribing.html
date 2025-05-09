@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASY FIND</title>
+    <link rel="icon" type="image/x-icon" href="/assets/شعار مفرغ 2.png" sizes="100x100">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .step-divider {
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
+  }
+  .btn-gold {
+      background-color: #FFD700;
+      color: white;
+    }
+    .btn-gold:hover {
+  background-color: #FFD700;
+  color: black;
+}
+#optionsDropdown:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25); /* توهج ذهبي */
+  }
+
+  /* تغيير خلفية الخيار عند التحويم */
+  #optionsDropdown option:hover {
+    background-color: #FFD700 !important;
+    color: black; /* لتكون القراءة واضحة */
+  }
+  @media (min-width: 200px) and (max-width: 1000px) {
+#whiteBg2 {
+    height: 20px;
+}
+}
+.shadow1 {
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+
+          }
+.shadow2 {
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+.border-plan {
+border-color: #FFD700;
+}
+.text-bg-gold {
+    background-color: #FFD700;
+}
+.selected-plan {
+  transform: scale(1.05);
+  border: 3px solid #FFD700;
+  transition: transform 0.3s, border 0.3s;
+  z-index: 1;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl  bg-white border-bottom navbar1">
+        <div class="container">
+          <a href="#" class="navbar-brand">
+            <img src="./assets/شعار مفرغ 2.png" width="80px" height="80px" alt="logo">
+          </a>
+      
+         
+          
+          
+      
+          <!-- أزرار   -->
+          <div class="d-flex">
+            <button class="btn btn-outline-gold" onclick="window.location.href='sellb.html'">Exit</button>
+
+             </div>
+        </div>
+    </div>
+      </nav>
+      <div style="height: 120px; background-color: white;" ></div>
+<!---->
+      <div class="container py-5">
+    <p>Step 1 of 3</p>
+  <div class="row row-cols-1 row-cols-md-4 mb-3 text-center g-4">
+    <div class="col" >
+        <div id="plan-free" class="card mb-4 rounded-3 shadow shadow2" data-price="0.00" style="background-color: white; height: 480px;" >
+          <div class="card-header py-3  text-bg-gold border-plan">
+            <h4 class="my-0 fw-normal">free</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0.00<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>For one month</li>
+              <li>2 properties allowed to list</li>
+              <li>It‘s just for tents</li>
+              <li>Property View , Property details & Simple Search</li>
+              <li>It‘s just for one month</li>
+              <li><div style="background-color: white; height: 100px;"></div></li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-gold">Contact us</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="plan-basic" class="card mb-4 rounded-3 shadow shadow2" data-price="49.99" style="background-color: white; height: 480px;">
+          <div class="card-header py-3  text-bg-gold border-plan">
+            <h4 class="my-0 fw-normal">Basic</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$49.99<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>For one month</li>
+              <li>2 properties allowed to list</li>
+              <li>It‘s great for personal use</li>
+              <li>Property View , Property details & Simple Search</li>
+              <li>It‘s just for one month</li>
+              <li><div style="background-color: white; height: 100px;"></div></li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-gold">Contact us</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="plan-standard" class="card mb-4 rounded-3 shadow shadow2" data-price="59.99" style="background-color: white; height: 480px;">
+          <div class="card-header py-3  text-bg-gold border-plan">
+            <h4 class="my-0 fw-normal">Standard</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$59.99<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>For one year</li>
+              <li>3 properties allowed to list in month</li>
+              <li> All the features of the basic package.</li>
+              <li>Property ranking enhancements.</li>
+              <li>Featured ads.</li>
+              <li>Weekly performance reports.</li>
+              <li>the first month is free</li>
+              <li>renewed every month</li>
+              <li>You will not be able to cancel after the free month ends.</li>
+              <li><div style="background-color: white; height: 5px;"></div></li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-gold">Contact us</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div id="plan-vip" class="card mb-4 rounded-3 shadow  shadow2" data-price="119.99" style="background-color: white; height: 480px;">
+          <div class="card-header py-3 text-bg-gold border-plan">
+            <h4 class="my-0 fw-normal">VIP</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$119.99<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Unlimited allowed to list</li>
+              <li> All the features of the Standrad plan.</li>
+              <li> Highlighting properties on landing page</li>
+              <li>24/7 dedicated support</li>
+              <li>Customization options for search appearance.</li>
+              <li> Weekly tips based on market analysis.</li>
+              <li>  renewed, You be able to cancel any time </li>
+              <li><div style="background-color: white; height: 4px;"></div></li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-gold">Contact us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 34%;"></th>
+            <th style="width: 22%;">Basic</th>
+            <th style="width: 22%;">Standard</th>
+            <th style="width: 22%;">VIP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">For Personal</th>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">For Good Seller</th>
+            <td></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+            <td></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">For Big Company</th>
+            <td></td>
+            <td></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Market analysis</th>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Unlimited lets</th>
+            <td></td>
+            <td></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Extra security</th>
+            <td></td>
+            <td></td>
+            <td><i class="bi bi-check" style="font-size: 20px;"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<!---->
+ <div style="height: 200px; background-color: white;" ></div>
+    <nav class="shadow1 navbar navbar-expand-xl bg-white border-top fixed-bottom ">
+        <div class="container">
+          <a href="#" class="navbar-brand">
+            <img src="/assets/wh bg.jpg" width="80px" height="80px" >
+          </a>
+      
+         
+          
+          
+      
+          <!-- أزرار   -->
+          <div class="d-flex">
+            <button class="btn btn-gold btn-lg" onclick="window.location.href='waypay.html'">Next</button>
+    
+             </div>
+        </div>
+    </div>
+      </nav>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+ <script>
+  let selectedPlanId = null;
+
+  const plans = ['plan-basic', 'plan-standard', 'plan-vip', 'plan-free' ];
+  const planDetails = {
+    'plan-basic': { name: 'Basic', price: 49.99 }, // السعر هنا  
+    'plan-standard': { name: 'Standard', price: 59.99 }, // السعر هنا
+    'plan-vip': { name: 'VIP', price: 119.99 }, // السعر هنا
+    'plan-free': { name: 'free', price: 0.00 } // السعر هنا
+  };
+
+  plans.forEach(planId => {
+    const planCard = document.getElementById(planId);
+    planCard.style.cursor = 'pointer';
+
+    planCard.addEventListener('click', () => {
+      // شيل التحديد من الكل
+      plans.forEach(id => document.getElementById(id).classList.remove('selected-plan'));
+
+      // حدد الحالي
+      planCard.classList.add('selected-plan');
+      selectedPlanId = planId;
+
+      // خزّن الخطة مع السعر في localStorage
+      localStorage.setItem('selectedPlan', JSON.stringify(planDetails[planId]));
+    });
+  });
+
+  document.querySelector('.btn-gold.btn-lg').addEventListener('click', (e) => {
+    if (!selectedPlanId) {
+      alert('Please select a plan before proceeding.');
+      e.preventDefault(); // ما يروح للصفحة التالية
+    } else {
+      const selectedPlan = JSON.parse(localStorage.getItem('selectedPlan'));
+      console.log("Selected plan:", selectedPlan.name, "Price:", selectedPlan.price);
+      // رح تبقى مخزنة بالصفحة الجاية
+    }
+  });
+</script>
+
+
+    </body>
+  </html>

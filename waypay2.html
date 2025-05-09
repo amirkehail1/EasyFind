@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EASY FIND</title>
+    <link rel="icon" type="image/x-icon" href="/assets/شعار مفرغ 2.png" sizes="100x100">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+     font-family: 'Segoe UI', sans-serif;
+     }
+   
+    .exit-btn {
+      background-color: #FFD700;
+      color: white;
+      border-radius: 12px;
+      padding: 0.4rem 1.5rem;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      border: none;
+    }
+    .exit-btn:hover {
+      background-color: #ffc107;
+      color: black;
+    }
+    .payment-box {
+      border: 1px solid #000;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .encrypted-label {
+      font-size: 0.9rem;
+      margin-right: 8px;
+    }
+    .icon-arrow {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  .step-divider {
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
+  }
+  .btn-gold {
+      background-color: #FFD700;
+      color: white;
+    }
+    .btn-gold:hover {
+  background-color: #FFD700;
+  color: black;
+}
+#optionsDropdown:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25); /* توهج ذهبي */
+  }
+
+  /* تغيير خلفية الخيار عند التحويم */
+  #optionsDropdown option:hover {
+    background-color: #FFD700 !important;
+    color: black; /* لتكون القراءة واضحة */
+  }
+  @media (min-width: 200px) and (max-width: 1000px) {
+#whiteBg2 {
+    height: 20px;
+}
+}
+.shadow1 {
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+
+          }
+.shadow2 {
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+.border-plan {
+border-color: #FFD700;
+}
+.text-bg-gold {
+    background-color: #FFD700;
+}
+.selected-plan {
+  transform: scale(1.05);
+  border: 3px solid #FFD700;
+  transition: transform 0.3s, border 0.3s;
+  z-index: 1;
+}
+ .btn-payment {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: black;
+  }
+
+  .btn-payment:hover {
+    background-color: #FFD700;
+    color: black;
+    border-color: #FFD700;
+  }
+
+  .btn-payment i {
+    font-size: 1.3rem;
+  }
+
+  .encrypted-note {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4px;
+    text-align: right;
+  }
+  .card-input {
+      border-radius: 10px;
+      border: 2px solid #000;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-yellow:hover {
+      background-color: #fadd32;
+      color: white;
+      font-weight: bold;
+    }
+    .btn-yellow {
+      background-color: #eac825;
+      color: black;
+    }
+    .subscription-box {
+      background-color: #fef3c7;
+      border-radius: 10px;
+      padding: 15px;
+      font-weight: 500;
+    }
+    .step-label {
+      font-size: 14px;
+      color: #555;
+    }
+    .pay-card {
+        width: 30rem;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl  bg-white border-bottom navbar1">
+        <div class="container">
+          <a href="#" class="navbar-brand">
+            <img src="./assets/شعار مفرغ 2.png" width="80px" height="80px" alt="logo">
+          </a>
+      
+         
+          
+          
+      
+          <!-- أزرار   -->
+          <div class="d-flex">
+            <button class="btn btn-outline-gold" onclick="window.location.href='sell.html'">Exit</button>
+
+             </div>
+        </div>
+    </div>
+      </nav>
+      <div style="height: 120px; background-color: white;" ></div>
+<!---->
+       <div class="container py-4 pay-card ">
+        <!-- Step info -->
+    <p class="text-muted">Step 2 of 3</p>
+     <!-- Main content -->
+    <h2 class="mb-4 fw-bold">Set up your credit or debit card</h2> 
+ 
+    
+    <!-- Card logos -->
+    <div class="mb-3">
+      <img src="https://img.icons8.com/color/48/visa.png" height="25">
+      <img src="https://img.icons8.com/color/48/mastercard-logo.png" height="25">
+      <img src="https://img.icons8.com/color/48/bank-card-back-side.png" height="25">
+    </div>
+    <!-- Card form -->
+    <form>
+      <input type="text" class="form-control card-input" placeholder="Card number" value="">
+      
+      <div class="row">
+        <div class="col-md-6">
+  <input type="text" id="expDate" class="form-control card-input" placeholder="DD/MM/YYYY">
+</div>
+
+        <div class="col-md-6">
+          <input type="text" class="form-control card-input" placeholder="CVV">
+        </div>
+      </div>
+
+      <input type="text" class="form-control card-input" placeholder="Name on card" value="">
+
+      <!-- Subscription info -->
+      <div class="subscription-box mb-3">
+        <div class="d-flex justify-content-between">
+           <div>
+  <h2 id="plan-name"></h2>
+  <p id="plan-price"></p>
+</div>
+          <a href="./subscribing.html" class="text-warning text-decoration-none">Change</a>
+        </div>
+      </div>
+
+      <!-- Agreement -->
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="agreeCheck">
+        <label class="form-check-label" for="agreeCheck">
+          I agree
+        </label>
+      </div>
+
+      <p class="text-muted" style="font-size: 0.9rem;">
+        By checking the box below, you agree to our Terms of Use, Privacy Statement, and that you are over 18.
+        Your Easy Find subscription will automatically renew, and the monthly membership fee
+        (currently USD 49.99 per month) will be charged to your payment method until you cancel.
+        You can cancel at any time to avoid future charges.
+      </p>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-yellow w-100 py-2">Start Membership</button>
+
+      <!-- reCAPTCHA notice -->
+      <p class="text-muted mt-3 text-center" style="font-size: 0.85rem;">
+        This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        <a href="#" class="text-decoration-none">Learn more.</a>
+      </p>
+    </form>
+    
+    </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+ <script>
+  const selectedPlan = localStorage.getItem('selectedPlan');
+  if (selectedPlan) {
+    const plan = JSON.parse(selectedPlan); // تحويل النص إلى كائن
+    console.log("الخطة المختارة:", plan.name, "السعر:", plan.price);
+    
+    // اعرض الاسم والسعر في الصفحة
+    document.getElementById('plan-name').innerText = plan.name;
+    document.getElementById('plan-price').innerText = `$${plan.price} /mo`; // يمكن تغيير الـ ID حسب الحاجة
+  }
+</script>
+
+      </body>
+      </html>
